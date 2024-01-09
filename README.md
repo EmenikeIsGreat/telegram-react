@@ -8,7 +8,7 @@ Please visit this [page](https://github.com/telegramdesktop/tdesktop/blob/dev/do
 2. **Provide your Telegram api keys as build arguments.**
 
 ```bash
-docker build . --build-arg TELEGRAM_API_ID=0000000 --build-arg TELEGRAM_API_HASH=00000000000000000
+docker build . --build-arg TELEGRAM_API_ID=0000000 --build-arg TELEGRAM_API_HASH=00000000000000000 -t telegram_react
 ```
 The Docker build will perform all the necessary steps to get a working build of Telegram-React.
 
