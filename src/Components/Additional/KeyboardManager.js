@@ -5,6 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+
+//this is useful cause an example of using this is you might have a mobile application
+//that uses a modal and needs specific key inputs that do different things so adding a handler that monitor
+//keyboard events and acts accordingly is key
+
 export class KeyboardHandler {
     constructor(onKeyDown) {
         this.onKeyDown = onKeyDown;

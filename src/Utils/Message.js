@@ -1297,7 +1297,7 @@ function openChatPhoto(photo, message, fileCancel) {
         message_id: id
     });
 
-    setMediaViewerContent({
+    setMediaViewerContent ({
         chatId: chat_id,
         messageId: id
     });

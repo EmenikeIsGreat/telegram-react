@@ -7,6 +7,11 @@
 
 import TdLibController from '../Controllers/TdLibController';
 
+
+// any action relative to calls is gonna emit a call specific event whenever a function is called 
+
+
+
 export function openGroupCallPanel() {
     TdLibController.clientUpdate({
         '@type': 'clientUpdateGroupCallPanel',

@@ -61,15 +61,15 @@ class Search extends React.Component {
             return;
         }
 
-        switch (event.key) {
-            case 'Escape':
-                event.preventDefault();
-                event.stopPropagation();
-                event.target.blur();
+        // switch (event.key) {
+        //     case 'Escape':
+        //         event.preventDefault();
+        //         event.stopPropagation();
+        //         event.target.blur();
 
-                this.handleClose();
-                break;
-        }
+        //         this.handleClose();
+        //         break;
+        // }
     };
 
     componentDidUpdate(prevProps, prevState, snapshot) {

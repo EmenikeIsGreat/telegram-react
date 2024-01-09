@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.9.7",
+    "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
     "classnames": "^2.2.6",
@@ -33,7 +33,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "start": "react-app-rewired start",
+    "start": "nodemon",
     "build": "react-app-rewired build && sw-precache-cra --config sw-config.js --no-minify",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
@@ -45,6 +45,7 @@
     "customize-cra": "^0.9.1",
     "gh-pages": "^2.2.0",
     "lint-staged": "^10.0.8",
+    "nodemon": "^3.0.2",
     "prettier": "^2.0.1",
     "prop-types": "^15.7.2",
     "react-app-rewired": "^2.1.5",
@@ -57,5 +58,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "nodemonConfig": {
+    "watch": ["src/"],
+    "ext": "js,jsx,json",
+    "ignore": ["src/**/*.test.js"],
+    "exec": "react-app-rewired start"
+  }
 }

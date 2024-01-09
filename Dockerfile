@@ -5,7 +5,7 @@ WORKDIR /app/
 # Copy over package.json and package-lock.json and install dependencies first,
 # so that we don't need to re-download dependencies if they have not been modified.
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN yarn install --frozen-lockfile
 
 COPY . .
 RUN cp -v node_modules/tdweb/dist/* public/

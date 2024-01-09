@@ -21,6 +21,8 @@ import TdClient from 'tdweb/dist/tdweb';
 // import TdClient from '@arseny30/tdweb/dist/tdweb';
 // import TdClient from '../../public/tdweb';
 
+//checks if localdatase exist and if it doesnt it creates a new one
+// local datbase is probably for like offline mode
 function databaseExists(dbname, callback) {
     var req = indexedDB.open(dbname);
     var existed = true;
@@ -42,6 +44,7 @@ class TdLibController extends EventEmitter {
             useTestDC: false,
             readOnly: false,
             verbosity: 1,
+            // how much detail is logged in the js console
             jsVerbosity: 3,
             fastUpdating: true,
             useDatabase: false,
@@ -51,7 +54,8 @@ class TdLibController extends EventEmitter {
         this.disableLog = true;
         this.streaming = true;
         this.calls = false;
-
+        
+        // this only runs once so wherever it is intatiated on the current webpage it gets the url and configures the paramters
         this.setParameters(window.location);
     }
 
@@ -77,7 +81,10 @@ class TdLibController extends EventEmitter {
             console.log(
                 `[TdLibController] (fast_updating=${fastUpdating}) Start client with params=${JSON.stringify(options)}`
             );
+            
 
+            // this attackes some function to the onUpdate. So any new message etc or update form the telgram client
+            // emits an update event
             this.client = new TdClient(options);
             this.client.onUpdate = update => {
                 if (!this.disableLog) {
@@ -188,10 +195,12 @@ class TdLibController extends EventEmitter {
                     throw error;
                 });
         } else {
+            // basically just sends requests to the telegram server
             return this.client.send(request);
         }
     };
 
+    // intializes telgram client server side with neccessary params
     sendTdParameters = async () => {
         const apiId = process.env.REACT_APP_TELEGRAM_API_ID;
         const apiHash = process.env.REACT_APP_TELEGRAM_API_HASH;
@@ -276,6 +285,8 @@ class TdLibController extends EventEmitter {
         this.clientUpdate(update);
     };
 
+
+    // dont know why this file would have this function
     setMediaViewerContent(content) {
         this.clientUpdate({
             '@type': 'clientUpdateMediaViewerContent',
@@ -284,6 +295,7 @@ class TdLibController extends EventEmitter {
     }
 }
 
+// this makes our controller globally accesible throughout the enitre web application
 const controller = new TdLibController();
 window.controller = controller;
 export default controller;
