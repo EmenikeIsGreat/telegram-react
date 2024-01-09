@@ -10,13 +10,15 @@ Please visit this [page](https://github.com/telegramdesktop/tdesktop/blob/dev/do
 ```bash
 docker build . --build-arg TELEGRAM_API_ID=0000000 --build-arg TELEGRAM_API_HASH=00000000000000000
 ```
+The Docker build will perform all the necessary steps to get a working build of Telegram-React.
+
+
 3. running in container
 ```bash
 docker run -e TELEGRAM_API_ID=0000000 -e TELEGRAM_API_HASH=00000000000000000 -p 3000:80 telegram_react
 ```
 
 
-The Docker build will perform all the necessary steps to get a working build of Telegram-React.
 
 ### References
 
